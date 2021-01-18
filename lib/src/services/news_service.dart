@@ -16,7 +16,7 @@ class NewsService with ChangeNotifier {
     Category(FontAwesomeIcons.building, 'business'),
     Category(FontAwesomeIcons.tv, 'entertainment'),
     Category(FontAwesomeIcons.addressCard, 'general'),
-    Category(FontAwesomeIcons.headSideVirus, 'healt'),
+    Category(FontAwesomeIcons.headSideVirus, 'health'),
     Category(FontAwesomeIcons.vials, 'science'),
     Category(FontAwesomeIcons.volleyballBall, 'sports'),
     Category(FontAwesomeIcons.memory, 'technology')
@@ -37,6 +37,8 @@ class NewsService with ChangeNotifier {
     this.getArticlesByCategory(valor);
     notifyListeners();
   }
+
+  List<Article> get getArticulosCategoriaSeleccionada => this.categoryArticles[this.selectedCategory];
   
   getTopHeadlines() async{
     final url = '$_URL_NEWS/top-headlines?apiKey=$_APIKEY&country=mx';
